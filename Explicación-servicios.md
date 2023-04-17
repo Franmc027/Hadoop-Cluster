@@ -2,7 +2,7 @@
 
 Los servicios que vamos a usar son:
 
-[HDFS](#HDFS)
+[HDFS](#id1)
 
 [MapReduce](#MapReduce)
 
@@ -26,7 +26,7 @@ Los servicios que vamos a usar son:
 
 [Nifi](#)
 
-## HDFS <a name="HDFS"></a>
+## HDFS <a name="id1"></a>
 
 ![image](https://user-images.githubusercontent.com/123466051/232528652-5f45d047-f766-4cda-9a18-86e31b539800.png)
 
