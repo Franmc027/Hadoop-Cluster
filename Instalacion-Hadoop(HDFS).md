@@ -67,9 +67,32 @@ Nos vamos al core-site.xml que esta en la $hadoop_home/etc/hadoop/ y añadimos l
 </configuration>
 ```
 
-Ahora nos dirigimos al hdfs-site.xml, donde daremos el factor de réplica, el namenode y los datanodes
+Ahora nos dirigimos al hdfs-site.xml, donde daremos el factor de réplica, el namenode y los datanodes, este tiene que tener el siguiente código:
 
-
+```
+<configuration>
+  <property>
+    <name>dfs.namenode.rpc-address</name>
+    <value>192.168.12.220:9000</value>
+  </property>
+  <property>
+    <name>dfs.datanode.data.dir</name>
+    <value>/home/fmoya/hadoop_data/hdfs/namenode</value>
+  </property>
+  <property>
+    <name>dfs.datanode.address</name>
+    <value>192.168.12.221:50010,192.168.12.222:50010</value>
+  </property>
+  <property>
+    <name>dfs.replication</name>
+    <value>3</value>
+  </property>
+  <property>
+    <name>dfs.permissions.enabled</name>
+    <value>true</value>
+  </property>
+</configuration>
+```
 
 
 
