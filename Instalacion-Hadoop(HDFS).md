@@ -59,8 +59,15 @@ Una vez echo esto empezamos a configurar el core-site y el hdfs-site.
 Nos vamos al core-site.xml que esta en la $hadoop_home/etc/hadoop/ y añadimos la siguiente configuración:
 
 ```
-
+<configuration>
+    <property>
+        <name>fs.defaultFS</name>
+        <value>hdfs://proyecto-argus:9000</value>
+    </property>
+</configuration>
 ```
+
+Ahora nos dirigimos al hdfs-site.xml, donde daremos el factor de réplica, el namenode y los datanodes
 
 
 
