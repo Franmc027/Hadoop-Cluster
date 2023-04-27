@@ -1,4 +1,4 @@
-# Instalacion de Hadoop Commons y HDFS
+# Instalacion de Hadoop Commons (HDFS - YARN - MAPREDUCE)
 
 Para nuestro clúster vamos usar la version 3.3.4 de Hadoop.
 
@@ -54,8 +54,46 @@ Para comprobar de que todo va correctamente ejecutamos el siguiente comando:
 
 ``` hadoop ```
 
+Tambien deberiamos modificar el archivo /etc/hosts para mas comodidad, para ello copiar lo siguinte en el archivo, modifica las ip con tu configuración:
 
-Una vez echo esto empezamos a configurar el core-site y el hdfs-site.
+
+```
+192.168.12.220 proyecto-argus
+
+192.168.12.220 servidor1
+192.168.12.221 servidor2
+192.168.12.222 servidor3
+
+192.168.12.220 220-bda-fmc-servidor1
+192.168.12.221 221-bda-dmc-servidor2
+192.168.12.222 222-bda-fmc-servidor3
+
+```
+
+Antes de empezar debemos poder conectarnos vía ssh desde el servidor1 hacia los servidores 2, 3 y a si mismo sin contraseña, para ello haremos lo siguiente.
+
+Primero debemos entrar ~/.ssh/
+
+``` cd $home/.ssh ```
+
+Una vez estemos allí debemos crear unas claves para poder entrar sin necesidad de contraseña. **Importante** debemos crear estas claves, sin ninguna contraseña encriptada, para que no nos pida esta cuando vallamos a conectarnos.
+
+```ssh-keygen -b 4096```
+
+Esto nos generará 2 claves una privada y otra pública, lo primero que tenemos que hacer es poner esa clave pública claves autorizadas. para poder conectarnos a nosotros mismo sin contraseña:
+
+```cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys```
+
+Ahora tenemos que hacer lo mismo en los servidores 2 y 3.
+Nos pasamos la clave al servidor 2 y 3 con el comando SCP, una vez en el servidor2  y servidor3 debemos realizar el mismo comando que antes:
+
+```cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys```
+
+y ya nos podríamos conectar por ssh sin contraseña
+
+
+
+Una vez hecho esto empezamos a configurar el core-site y el hdfs-site.
 Nos vamos al core-site.xml que esta en la $hadoop_home/etc/hadoop/ y añadimos la siguiente configuración:
 
 ```
@@ -67,30 +105,26 @@ Nos vamos al core-site.xml que esta en la $hadoop_home/etc/hadoop/ y añadimos l
 </configuration>
 ```
 
-Ahora nos dirigimos al hdfs-site.xml, donde daremos el factor de réplica, el namenode y los datanodes, este tiene que tener el siguiente código:
+Ahora nos dirigimos al hdfs-site.xml, donde pondremos la configuración de nuestro HDFS en nuestro caso tendremos un factor de réplica de 2.
 
 ```
 <configuration>
-  <property>
-    <name>dfs.namenode.rpc-address</name>
-    <value>192.168.12.220:9000</value>
-  </property>
-  <property>
-    <name>dfs.datanode.data.dir</name>
+
+<property>
+    <name>dfs.namenode.name.dir</name>
     <value>/home/fmoya/hadoop_data/hdfs/namenode</value>
   </property>
+
   <property>
-    <name>dfs.datanode.address</name>
-    <value>192.168.12.221:50010,192.168.12.222:50010</value>
+    <name>dfs.datanode.data.dir</name>
+    <value>/home/fmoya/hadoop_data/hdfs/datanode</value>
   </property>
+
   <property>
     <name>dfs.replication</name>
-    <value>3</value>
+    <value>2</value>
   </property>
-  <property>
-    <name>dfs.permissions.enabled</name>
-    <value>true</value>
-  </property>
+
 </configuration>
 ```
 
