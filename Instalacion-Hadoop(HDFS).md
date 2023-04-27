@@ -54,7 +54,7 @@ Para comprobar de que todo va correctamente ejecutamos el siguiente comando:
 
 ``` hadoop ```
 
-Tambien deberiamos modificar el archivo /etc/hosts para mas comodidad, para ello copiar lo siguinte en el archivo, modifica las ip con tu configuración:
+También deberíamos modificar el archivo /etc/hosts para mas comodidad, para ello copiar lo siguinte en el archivo, modifica las ip con tu configuración **Importante** las tres ultimas ip tienen que tener el nombre de tus servidores:
 
 
 ```
