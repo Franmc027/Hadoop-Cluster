@@ -1,18 +1,18 @@
-# Instalacion de Hadoop Commons (HDFS - YARN - MAPREDUCE)
+# Instalación de Hadoop Commons (HDFS - YARN - MAPREDUCE)
 
-Para nuestro clúster vamos usar la version 3.3.4 de Hadoop.
+Para nuestro clúster vamos a usar la versión 3.3.4 de Hadoop.
 
-Para la instalacion de esto primero debemos de instalar la versión recomendada de Java:
+Para la instalación de esto primero debemos de instalar la versión recomendada de Java:
 
 ```sudo apt-get install openjdk-11-jdk ```
 
 ## Descargar y descomprimir Hadoop
 
-En nuestro caso utilizaremos la version3.3.4, para descargarla realizamos el siguinete comando:
+En nuestro caso utilizaremos la versión 3.3.4, para descargarla realizamos el siguiente comando:
 
 ```wget https://downloads.apache.org/hadoop/common/hadoop-3.3.4/hadoop-3.3.4.tar.gz```
 
-Una vez echo esto lo descomprimimos
+Una vez hecho esto lo descomprimimos
 
 ```tar -xzf hadoop-3.3.4.tar.gz```
 
@@ -20,7 +20,7 @@ Entramos dentro
 
 ```cd hadoop-3.3.4```
 
-Modificamos el archivo etc/hadoop/hadoop-env.sh, para definir nuestra version de Java
+Modificamos el archivo etc/hadoop/hadoop-env.sh, para definir nuestra versión de Java
 
 ```export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64/```
 
@@ -28,7 +28,7 @@ Modificamos el archivo etc/hadoop/hadoop-env.sh, para definir nuestra version de
 
 ## Variables ~/.bashrc
 
-Para mas comodidad, vamos a añadir las siguientes variables a ~/.bashrc, para poder utilizar los comandos de hdfs desde cualquier lado.
+Para más comodidad, vamos a añadir las siguientes variables a ~/.bashrc, para poder utilizar los comandos de hdfs desde cualquier lado.
 
 ```
 export HADOOP_HOME=$HOME/hadoop-3.3.4 
@@ -59,7 +59,7 @@ Para comprobar de que todo va correctamente ejecutamos el siguiente comando:
 
 ## Modificación del archivo /etc/hosts
 
-También deberíamos modificar el archivo /etc/hosts para mas comodidad, para ello copiar lo siguinte en el archivo, modifica las ip con tu configuración **Importante** las tres ultimas ip tienen que tener el nombre de tus servidores:
+También deberíamos modificar el archivo /etc/hosts para mas comodidad, para ello copiar lo siguinte en el archivo, modifica las ip con tu configuración **Importante** las tres últimas ip tienen que ir acompañadas de el nombre de tus servidores:
 
 
 ```
@@ -83,11 +83,11 @@ Primero debemos entrar ~/.ssh/
 
 ``` cd $home/.ssh ```
 
-Una vez estemos allí debemos crear unas claves para poder entrar sin necesidad de contraseña. **Importante** debemos crear estas claves, sin ninguna contraseña encriptada, para que no nos pida esta cuando vallamos a conectarnos.
+Una vez estemos allí debemos generar unas claves para poder entrar sin necesidad de contraseña. **Importante** debemos crear estas claves, sin ninguna contraseña encriptada, para que no nos pida esta cuando vallamos a conectarnos.
 
 ```ssh-keygen -b 4096```
 
-Esto nos generará 2 claves una privada y otra pública, lo primero que tenemos que hacer es poner esa clave pública claves autorizadas. para poder conectarnos a nosotros mismo sin contraseña:
+Esto nos generará 2 claves, una privada y otra pública, lo primero que tenemos que hacer es poner esa clave pública claves autorizadas. Para poder conectarnos a nosotros mismo sin contraseña:
 
 ```cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys```
 
@@ -102,7 +102,7 @@ y ya nos podríamos conectar por ssh sin contraseña
 ## Configuración del core-site.xml
 
 Una vez hecho esto empezamos a configurar el core-site y el hdfs-site.
-Nos vamos al core-site.xml que esta en la $hadoop_home/etc/hadoop/ y añadimos la siguiente configuración:
+Nos vamos al core-site.xml que está en la $hadoop_home/etc/hadoop/ y añadimos la siguiente configuración:
 
 ```
 <configuration>
@@ -158,7 +158,7 @@ Lo primero que tenemos que hacer es conseguir el classpaht para ello realizamos 
 
 ```echo `hadoop classpath` ```
 
-Nos dirigimos a /$home_hadoop/etc/hadoop/yarn-site.xml y copiamos la siguiente configuración, debes cambiar el parametro yarn.resourcemanager.hostname con la ip de tu resourcemanager, en mi caso es el server1, tambíen debes modificar el parametro yarn.application.classpath con la salida del comando anterior:
+Nos dirigimos a /$home_hadoop/etc/hadoop/yarn-site.xml y copiamos la siguiente configuración, debes cambiar el parametro yarn.resourcemanager.hostname con la ip de tu resourcemanager, en mi caso es el server1, también debes modificar el parámetro yarn.application.classpath con la salida del comando anterior:
 
 ```
 <configuration>
@@ -192,8 +192,8 @@ Nos dirigimos a /$home_hadoop/etc/hadoop/yarn-site.xml y copiamos la siguiente c
 
 ## Workers
 
-Ahora como en nuestra configuracion de cluster vamos a tener un servidor principal y varios workers, tenemos que modificar el archivo /$hadoop_home/etc/hadoop/workers,
-este archivo nos indicara cuales van a ser los servidores donde pondremos los datanodes y los nodemanagers, en nuestro caso el archivo es el siguiente:
+Ahora como en nuestra configuración de clúster vamos a tener un servidor principal y varios workers, tenemos que modificar el archivo /$hadoop_home/etc/hadoop/workers,
+este archivo nos indicara cuáles van a ser los servidores donde pondremos los datanodes y los nodemanagers, en nuestro caso el archivo es el siguiente:
 
 ```
 servidor2
@@ -203,13 +203,13 @@ servidor3
 
 ## Lanzamiento de HDFS y YARN
 
-Una vez echo todo lo anterior, ya podemos inicar estos dos servicios:
+Una vez echo todo lo anterior, ya podemos iniciar estos dos servicios:
 
 ``` start-dfs.sh ```
 
 ``` start-yarn.sh ```
 
-Una vez echo esto podremos entrar a la interfaz web de estos servicios:
+Una vez realizado esto podremos entrar a la interfaz web de estos servicios:
 
 HDFS:
     ``` IP-SERVER1:9870 --> Ejemplo: 192.168.12.220:9870 ```
