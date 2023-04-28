@@ -6,8 +6,9 @@ Para la instalacion de esto primero debemos de instalar la versión recomendada 
 
 ```sudo apt-get install openjdk-11-jdk ```
 
+## Descargar y descomprimir Hadoop
 
-Despues descargamos Apache Hadoop:
+En nuestro caso utilizaremos la version3.3.4, para descargarla realizamos el siguinete comando:
 
 ```wget https://downloads.apache.org/hadoop/common/hadoop-3.3.4/hadoop-3.3.4.tar.gz```
 
@@ -25,6 +26,7 @@ Modificamos el archivo etc/hadoop/hadoop-env.sh, para definir nuestra version de
 
 ![image](https://user-images.githubusercontent.com/123466051/233122306-dfbf5530-102a-4da0-ab20-396adf2475f7.png)
 
+## Variables ~/.bashrc
 
 Para mas comodidad, vamos a añadir las siguientes variables a ~/.bashrc, para poder utilizar los comandos de hdfs desde cualquier lado.
 
@@ -54,6 +56,9 @@ Para comprobar de que todo va correctamente ejecutamos el siguiente comando:
 
 ``` hadoop ```
 
+
+## Modificación del archivo /etc/hosts
+
 También deberíamos modificar el archivo /etc/hosts para mas comodidad, para ello copiar lo siguinte en el archivo, modifica las ip con tu configuración **Importante** las tres ultimas ip tienen que tener el nombre de tus servidores:
 
 
@@ -69,6 +74,8 @@ También deberíamos modificar el archivo /etc/hosts para mas comodidad, para el
 192.168.12.222 222-bda-fmc-servidor3
 
 ```
+
+## Conexión por ssh sin contraseña entre servidores
 
 Antes de empezar debemos poder conectarnos vía ssh desde el servidor1 hacia los servidores 2, 3 y a si mismo sin contraseña, para ello haremos lo siguiente.
 
@@ -92,6 +99,7 @@ Nos pasamos la clave al servidor 2 y 3 con el comando SCP, una vez en el servido
 y ya nos podríamos conectar por ssh sin contraseña
 
 
+## Configuración del core-site.xml
 
 Una vez hecho esto empezamos a configurar el core-site y el hdfs-site.
 Nos vamos al core-site.xml que esta en la $hadoop_home/etc/hadoop/ y añadimos la siguiente configuración:
@@ -105,7 +113,9 @@ Nos vamos al core-site.xml que esta en la $hadoop_home/etc/hadoop/ y añadimos l
 </configuration>
 ```
 
-Ahora nos dirigimos al hdfs-site.xml, donde pondremos la configuración de nuestro HDFS en nuestro caso tendremos un factor de réplica de 2.
+## Configuracion HDFS-site.xml
+
+Ahora nos dirigimos a /$home_hadoop/etc/hadoop/hdfs-site.xml, donde pondremos la configuración de nuestro HDFS en nuestro caso tendremos un factor de réplica de 2.
 
 ```
 <configuration>
@@ -127,6 +137,86 @@ Ahora nos dirigimos al hdfs-site.xml, donde pondremos la configuración de nuest
 
 </configuration>
 ```
+
+## Mapred-site.xml
+
+Ahora nos dirigimos a /$home_hadoop/etc/hadoop/Mapred-site.xml y copiamos la siguiente configuración:
+
+```
+<configuration>
+    <property>
+            <name>mapreduce.framework.name</name>
+            <value>yarn</value>
+    </property>
+</configuration>
+```
+
+
+## Yarn-site.xml
+
+Lo primero que tenemos que hacer es conseguir el classpaht para ello realizamos este comando:
+
+```echo `hadoop classpath` ```
+
+Nos dirigimos a /$home_hadoop/etc/hadoop/yarn-site.xml y copiamos la siguiente configuración, debes cambiar el parametro yarn.resourcemanager.hostname con la ip de tu resourcemanager, en mi caso es el server1, tambíen debes modificar el parametro yarn.application.classpath con la salida del comando anterior:
+
+```
+<configuration>
+    <property>
+        <name>yarn.webapp.ui2.enable</name>
+        <value>true</value>
+    </property>
+
+    <property>
+            <name>yarn.acl.enable</name>
+            <value>0</value>
+    </property>
+
+    <property>
+            <name>yarn.resourcemanager.hostname</name>
+            <value>192.168.12.220</value>
+    </property>
+	
+    <property>
+        <name>yarn.application.classpath</name>
+        <value>/home/fmoya/hadoop-3.3.4/etc/hadoop:/home/fmoya/hadoop-3.3.4/share/hadoop/common/lib/*:/home/fmoya/hadoop-3.3.4/share/hadoop/common/*:/home/fmoya/hadoop-3.3.4/share/hadoop/hdfs:/home/fmoya/hadoop-3.3.4/share/hadoop/hdfs/lib/*:/home/fmoya/hadoop-3.3.4/share/hadoop/hdfs/*:/home/fmoya/hadoop-3.3.4/share/hadoop/mapreduce/*:/home/fmoya/hadoop-3.3.4/share/hadoop/yarn:/home/fmoya/hadoop-3.3.4/share/hadoop/yarn/lib/*:/home/fmoya/hadoop-3.3.4/share/hadoop/yarn/*</value>
+    </property>
+
+    <property>
+            <name>yarn.nodemanager.aux-services</name>
+            <value>mapreduce_shuffle</value>
+    </property>
+</configuration>
+
+```
+
+## Workers
+
+Ahora como en nuestra configuracion de cluster vamos a tener un servidor principal y varios workers, tenemos que modificar el archivo /$hadoop_home/etc/hadoop/workers,
+este archivo nos indicara cuales van a ser los servidores donde pondremos los datanodes y los nodemanagers, en nuestro caso el archivo es el siguiente:
+
+```
+servidor2
+servidor3
+```
+
+
+## Lanzamiento de HDFS y YARN
+
+Una vez echo todo lo anterior, ya podemos inicar estos dos servicios:
+
+``` start-dfs.sh ```
+
+``` start-yarn.sh ```
+
+Una vez echo esto podremos entrar a la interfaz web de estos servicios:
+
+HDFS:
+    ``` IP-SERVER1:9870 --> Ejemplo: 192.168.12.220:9870 ```
+    
+YARN
+    ``` IP-SERVER1:8088/ui2 --> Ejemplo: 192.168.12.220:8088/ui2
+
 
 
 
