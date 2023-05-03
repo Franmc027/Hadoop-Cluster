@@ -212,10 +212,19 @@ Una vez echo todo lo anterior, ya podemos iniciar estos dos servicios:
 Una vez realizado esto podremos entrar a la interfaz web de estos servicios:
 
 HDFS:
-    ``` IP-SERVER1:9870 --> Ejemplo: 192.168.12.220:9870 ```
+    ```
+    IP-SERVER1:9870 --> Ejemplo: 192.168.12.220:9870
+    ```
+    
+![image](https://user-images.githubusercontent.com/123466051/235992798-56ddf13b-16be-44c0-ba54-6821efbcaef6.png)
+
     
 YARN
-    ``` IP-SERVER1:8088/ui2 --> Ejemplo: 192.168.12.220:8088/ui2
+    ```
+    IP-SERVER1:8088/ui2 --> Ejemplo: 192.168.12.220:8088/ui2
+    ```
+![image](https://user-images.githubusercontent.com/123466051/235992939-9aa9d30d-04e1-4af8-b265-c413e8f10245.png)
+
 
 
 
