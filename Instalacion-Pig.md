@@ -16,3 +16,21 @@ tar -xzvf pig-0.17.0.tar.gz
 mv pig-0.17.0 $HADOOP_HOME/pig-0.17.0
 ```
 
+
+Creamos las siguientes variables en nuestro ~/.bashrc
+
+```
+export PIG_HOME=$HADOOP_HOME/pig-0.17.0
+export PATH=$PIG_HOME/bin:$PATH
+export PIG_CLASSPATH=$HADOOP_HOME/conf
+```
+
+Reiniciamos el bashrc
+
+```source ~/.bashrc```
+
+Después de todo esto ya tendríamos pig listo para su uso, con tan solo poner ```pig``` en nuestro terminal.
+
+
+
+
