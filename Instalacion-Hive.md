@@ -78,7 +78,8 @@ hdfs dfs -chmod g+w /user/hive/warehouse
 
 Modificamos el hive-site.xml con las siguientes líneas, ** Importante ** estas líneas deben estar al principio para poder sobrescribir los valores por defecto:
 
-``` <property>
+``` 
+   <property>
         <name>system:java.io.tmpdir</name>
         <value>/tmp/hive/java</value>
     </property>
@@ -95,6 +96,12 @@ cd $home
 mkdir Hive_Metastore
 cd Hive_Metastore
 ```
+El archivo hive-site.xml tiene un error en la línea 3225, debemos de ir a esa linea y eliminar lo siguiente:
+
+![image](https://user-images.githubusercontent.com/123466051/236450445-a61ec1c1-e9d2-4120-857e-398ca2dd50af.png)
+
+
+
 
 Ahora creamos el schema:
 
