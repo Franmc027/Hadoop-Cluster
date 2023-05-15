@@ -41,6 +41,7 @@ Lo movemos a nuestro $hadoop_home
 Editamos nuestro ```~/.bashrc``` y añadimos:
 
 ```
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 export FLUME_HOME=$HADOOP_HOME/flume-1.11
 export PATH=$FLUME_HOME/bin:$PATH
 ```
