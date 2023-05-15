@@ -6,7 +6,7 @@
 **Este servicio lo vamos a instalar en el Servidor4, por lo cual la siguiente configuración será exclusiva de ese servidor.**
 
 
-Lo primero que debemos hacer es descargar java8, ya que es la version que necesita Flume.
+Lo primero que debemos hacer es descargar java8, ya que es la versión que necesita Flume.
 
 ```sudo apt-get install openjdk-8-jdk```
 
@@ -26,7 +26,7 @@ Ahora debemos cambiar la variable de java en nuestro hadoop-env.sh(```/$hadoop_h
 
 ```export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64```
 
-Una vez echo esto reiniciamos hadoop desde el servidor1, una vez echo esto debemos descargar Flume.
+Una vez hecho esto reiniciamos hadoop desde el servidor1, una vez hecho esto debemos descargar Flume.
 
 ```wget https://dlcdn.apache.org/flume/1.11.0/apache-flume-1.11.0-bin.tar.gz```
 
@@ -52,7 +52,7 @@ cp flume-conf.properties.template flume-conf.properties
 cp flume-env.sh.template flume-env.sh
 ```
 
-Despues de haber echo esto verificamos que funcione todo, verificando la versión de nuestro flume:
+Despues de haber hesto verificamos que funcione todo, verificando la versión de nuestro flume:
 
 ```
 flume-ng version
