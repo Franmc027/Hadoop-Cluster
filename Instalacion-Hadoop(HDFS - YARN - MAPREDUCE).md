@@ -68,10 +68,14 @@ También deberíamos modificar el archivo /etc/hosts para mas comodidad, para el
 192.168.12.220 servidor1
 192.168.12.221 servidor2
 192.168.12.222 servidor3
+192.168.12.223 servidor4
+
 
 192.168.12.220 220-bda-fmc-servidor1
 192.168.12.221 221-bda-dmc-servidor2
 192.168.12.222 222-bda-fmc-servidor3
+192.168.12.223 222-bda-fmc-servidor4
+
 
 ```
 
