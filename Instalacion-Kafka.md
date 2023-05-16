@@ -6,7 +6,7 @@
 
 ## Instalación 
 
-Lo primero que vamos a hacer es descargar desde la web oficial la ultima version estable de Kafka (esta ya viene con Zookeeper integrado)
+Lo primero que vamos a hacer es descargar desde la web oficial la última versión estable de Kafka (esta ya viene con Zookeeper integrado)
 
 ```wget https://downloads.apache.org/kafka/3.4.0/kafka-3.4.0-src.tgz```
 
@@ -30,31 +30,31 @@ export PATH=$KAFKA_HOME/bin:$PATH
  
  Empezamos a configurar Kafka, para ello nos vamos ```$KAFKA_HOME/config```. Lo primero que vamos a hacer es entrar en ```Zookeeper.properties```
  
- En mi caso e cambiado solo la dirección de los logs para no perderlos cadavez que se apaga, para ello cambiamos la ruta de estos en mi caso:
+ En mi caso he cambiado solo la dirección de los logs para no perderlos cada vez que se apaga, para ello cambiamos la ruta de estos en mi caso:
  
  ```dataDir=/home/fmoya/zookeeper-log/zookeeper```
 
 
 Despues de esto nos vamos al archivo ```server.properties```
 
-- Descomentamos la siguiente linea y colocalmos la ip de la maquina donde va a estar este kafaka:
+- Descomentamos la siguiente línea y colocamos la ip de la máquina donde va a estar este kafaka:
 ```listeners=PLAINTEXT://192.168.12.223:9092```
  
  - Modificamos la línea donde proporcionamos donde va a escuchar Zookeeper:
  ```zookeeper.connect=192.168.12.223:2181```
  
- - También como antes hemos echo en el archivo de zookeeper.properties voy a cambiar la direcion de los logs:
+ - También como antes hemos hecho en el archivo de zookeeper.properties voy a cambiar la direción de los logs:
  ```log.dirs=/home/fmoya/kafka-logs```
  
  Una vez echo esto debemos iniciar los procesos en el siguiente orden (para ello deberemos ocupar 2 terminales o lanzarlos en segundo plano con &):
  
- - Iniciamos Zookeeper(le debemos pasar donde esta el archivo de configuración como argumento):
+ - Iniciamos Zookeeper(le debemos pasar donde está el archivo de configuración como argumento):
     ``` zookeeper-server-start.sh $KAFKA_HOME/config/zookeeper.properties ```
     
- - Iniciamos Kafka(le debemos pasar donde esta el archivo de configuración como argumento):
+ - Iniciamos Kafka(le debemos pasar donde está el archivo de configuración como argumento):
    ```kafka-server-start.sh $KAFKA_HOME/config/server.properties```
  
- Ya tendriamos kafka iniciado, para comprobar que esta funcionando vamos a crear un topic:
+ Ya tendríamos kafka iniciado, para comprobar que está funcionando vamos a crear un topic:
  
  ```kafka-topics.sh --create --bootstrap-server 192.168.12.223:9092 -topic prueba```
  
