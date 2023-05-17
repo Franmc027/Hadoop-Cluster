@@ -13,3 +13,7 @@ Lo descomprimimos y lo movemos
 
 ```tar -xzvf hue-4.11.0.tgz```
 
+``` mv hue-4.11.0 $HADOOP_HOME```
+
+
+
