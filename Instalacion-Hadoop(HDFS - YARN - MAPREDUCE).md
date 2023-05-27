@@ -95,7 +95,7 @@ Esto nos generará 2 claves, una privada y otra pública, lo primero que tenemos
 
 ```cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys```
 
-Ahora tenemos que hacer lo mismo en los servidores 2 y 3.
+Ahora tenemos que hacer lo mismo en los servidores 2 , 3 Y 4.
 Nos pasamos la clave al servidor 2 y 3 con el comando SCP, una vez en el servidor2  y servidor3 debemos realizar el mismo comando que antes:
 
 ```cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys```
@@ -202,6 +202,7 @@ este archivo nos indicara cuáles van a ser los servidores donde pondremos los d
 ```
 servidor2
 servidor3
+servidor4
 ```
 
 
