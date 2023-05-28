@@ -15,6 +15,10 @@ La gestión de los servicios en el cluster es la siguiente:
 
 ![My project-1](https://github.com/Franmc027/Hadoop-Cluster/assets/123466051/bc8f6f19-7cc6-4539-b9da-5b57087b5fcf)
 
+## Información de los servicios instalados
+
+La información del funcionamiento de cada servicio instalado esta [aqui](https://github.com/Franmc027/Hadoop-Cluster/blob/main/Explicaci%C3%B3n-servicios.md)
+
 
 ## Orden de instalación
 
