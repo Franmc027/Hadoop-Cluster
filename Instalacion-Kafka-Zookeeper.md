@@ -43,10 +43,10 @@ Despues de esto nos vamos al archivo ```server.properties```
  - Modificamos la línea donde proporcionamos donde va a escuchar Zookeeper:
  ```zookeeper.connect=192.168.12.223:2181```
  
- - También como antes hemos hecho en el archivo de zookeeper.properties voy a cambiar la direción de los logs:
+ - También como antes hemos hecho en el archivo de zookeeper.properties voy a cambiar la dirección de los logs:
  ```log.dirs=/home/fmoya/kafka-logs```
  
- Una vez echo esto debemos iniciar los procesos en el siguiente orden (para ello deberemos ocupar 2 terminales o lanzarlos en segundo plano con &):
+ Una vez hecho esto debemos iniciar los procesos en el siguiente orden (para ello deberemos ocupar 2 terminales o lanzarlos en segundo plano con &):
  
  - Iniciamos Zookeeper(le debemos pasar donde está el archivo de configuración como argumento):
     ``` zookeeper-server-start.sh $KAFKA_HOME/config/zookeeper.properties ```
