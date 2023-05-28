@@ -32,6 +32,8 @@ Copiar el arhivo ```spark-env.sh.template``` y crear el archivo ```spark-env.sh`
 
 ```cp spark-env.sh.template spark-env.sh```
 
+## Configuración
+
 Ahora entramos dentro del spark-env.sh y colocamos la siguiente configuración:
 
 ```
@@ -40,4 +42,10 @@ export YARN_CONF_DIR=/home/fmoya/hadoop-3.3.4/etc/hadoop
 export PYSPARK_PYTHON=python3
 ```
 
+Una vez realizado la configuración ya podemos usar los comandos ```sapark-shell``` y ```pyspark``` par usar esta herramienta.
+
+![image](https://github.com/Franmc027/Hadoop-Cluster/assets/123466051/ba4160a6-091f-45bb-8917-e14583bba861)
+
+
+![image](https://github.com/Franmc027/Hadoop-Cluster/assets/123466051/5dd2cd0e-aa13-4436-8054-bffc7d835f3b)
 
