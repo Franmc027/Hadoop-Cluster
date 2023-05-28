@@ -46,6 +46,10 @@ Despues de esto nos vamos al archivo ```server.properties```
  - También como antes hemos hecho en el archivo de zookeeper.properties voy a cambiar la dirección de los logs:
  ```log.dirs=/home/fmoya/kafka-logs```
  
+ Nos vamos ahora a $KAFKA_HOME y ejecutamos el siguiente comando:
+ 
+ ```./gradlew jar -PscalaVersion=2.13.10```
+ 
  Una vez hecho esto debemos iniciar los procesos en el siguiente orden (para ello deberemos ocupar 2 terminales o lanzarlos en segundo plano con &):
  
  - Iniciamos Zookeeper(le debemos pasar donde está el archivo de configuración como argumento):
