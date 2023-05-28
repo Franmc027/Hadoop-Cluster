@@ -39,6 +39,10 @@ Iniciamos nifi con:
 
 ```nifi.sh start```
 
+Para poder entrar a la interfaz web nos va a pedir un usuario y una contraseña, para establecer este realizamos el siguiente comando:
+
+``` nifi.sh set-single-user-credentials usuario contraseña```
+
 Ya podríamos entrar a la interfaz web escribiendo la siguiente url en nuestro buscador:
 
 ```https:192.168.12.223:8443```
