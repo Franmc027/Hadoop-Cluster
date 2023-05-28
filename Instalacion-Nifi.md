@@ -18,7 +18,7 @@ Lo movemos a $HADOOP_HOME:
 
 ```mv nifi-1.21.0 $HADOOP_HOME/nifi-1-21-0```
 
-Modificamos  nuesto  bashrc (```nano ~/.bashrc```) y añadimos al final:
+Modificamos  nuestro  bashrc (```nano ~/.bashrc```) y añadimos al final:
 
 ```
 export NIFI_HOME=$HADOOP_HOME/nifi-1-21-0
@@ -33,7 +33,7 @@ Nos dirigimos a la carpeta conf (```cd $NIFI_HOME/conf```) y modificamos las sig
 nifi.web.https.host=192.168.12.223
 nifi.web.https.port=8443
 ```
-Esto nos dara acceso a la aplicación web de nifi por el puerto indicado.
+Esto nos da acceso a la aplicación web de nifi por el puerto indicado.
 
 Iniciamos nifi con:
 
