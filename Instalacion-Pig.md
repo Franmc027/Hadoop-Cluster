@@ -29,6 +29,10 @@ Reiniciamos el bashrc
 
 ```source ~/.bashrc```
 
+Iniciamos el siguiente servicio:
+
+```mapred --daemon start historyserver```
+
 Después de todo esto ya tendríamos pig listo para su uso, con tan solo poner ```pig``` en nuestro terminal.
 
 ![image](https://github.com/Franmc027/Hadoop-Cluster/assets/123466051/2cc322d1-0f5e-4071-a345-81c19c44bc9c)
