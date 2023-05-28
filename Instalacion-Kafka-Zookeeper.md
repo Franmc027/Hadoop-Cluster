@@ -28,7 +28,7 @@ export PATH=$KAFKA_HOME/bin:$PATH
  
  ## Configuración
  
- Empezamos a configurar Kafka, para ello nos vamos ```$KAFKA_HOME/config```. Lo primero que vamos a hacer es entrar en ```Zookeeper.properties```
+ Empezamos a configurar Kafka, para ello nos vamos ```$KAFKA_HOME/config```. Lo primero que vamos a hacer es entrar en ```zookeeper.properties```
  
  En mi caso he cambiado solo la dirección de los logs para no perderlos cada vez que se apaga, para ello cambiamos la ruta de estos en mi caso:
  
