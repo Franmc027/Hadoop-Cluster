@@ -35,13 +35,14 @@ nifi.web.https.port=8443
 ```
 Esto nos da acceso a la aplicación web de nifi por el puerto indicado.
 
+Para poder entrar a la interfaz web nos va a pedir un usuario y una contraseña, para establecer este realizamos el siguiente comando:
+
+``` nifi.sh set-single-user-credentials usuario contraseña```
+
 Iniciamos nifi con:
 
 ```nifi.sh start```
 
-Para poder entrar a la interfaz web nos va a pedir un usuario y una contraseña, para establecer este realizamos el siguiente comando:
-
-``` nifi.sh set-single-user-credentials usuario contraseña```
 
 Ya podríamos entrar a la interfaz web escribiendo la siguiente url en nuestro buscador:
 
