@@ -4,7 +4,7 @@
 
 **Este servicio lo vamos a instalar en el Servidor2, por lo cual la siguiente configuración será exclusiva de ese servidor.**
 
-Lo primero que vamos ha hacer es instalar la version de pig que vamos a usar, en mi caso la versión 0.17.0:
+Lo primero que vamos a hacer es instalar la versión de pig que vamos a usar, en mi caso la versión 0.17.0:
 
 ```wget https://downloads.apache.org/pig/pig-0.17.0/pig-0.17.0.tar.gz```
 
