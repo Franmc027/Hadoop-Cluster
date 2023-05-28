@@ -8,18 +8,18 @@
 
 ## Instalación y configuración
 
-Lo primero que deberemos hacer es descargar la version estable mas reciente desde la página web oficial de Spark:
+Lo primero que deberemos hacer es descargar la versión estable más reciente desde la página web oficial de Spark:
 
 ```wget https://www.apache.org/dyn/closer.lua/spark/spark-3.4.0/spark-3.4.0-bin-hadoop3.tgz```
 
-Una vez echo esto debemos descomprimir el archivo y moverlo hacia nuestro $HADOOP_HOME:
+Una vez hecho esto debemos descomprimir el archivo y moverlo hacia nuestro $HADOOP_HOME:
 
 ```tar -xzvf spark-3.4.0-bin-hadoop3.tar.gz```
 
 
 ```mv spark-3.4.0-bin-hadoop3 $HADOOP_HOME/spark-3-0-4```
 
-Ahora modificamos el ```~/.bashrc``` y añadimos las siguientes lineas:
+Ahora modificamos el ```~/.bashrc``` y añadimos las siguientes líneas:
 
 ```
 export SPARK_HOME=/home/fmoya/hadoop-3.3.4/spark-3-4-0
