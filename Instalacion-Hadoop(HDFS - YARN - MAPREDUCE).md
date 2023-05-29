@@ -205,10 +205,13 @@ servidor3
 servidor4
 ```
 
+## Configuracíon servidores workes
+
+Debemos hacer el proceso anterior en todos los nodos workes que tengamos, en mi caso en el servidor 2, 3 y 4.
 
 ## Lanzamiento de HDFS y YARN
 
-Una vez echo todo lo anterior, ya podemos iniciar estos dos servicios:
+Una vez echo todo lo anterior, ya podemos iniciar estos dos servicios, esto se debe realizar desde el servidor master(servidor1):
 
 ``` start-dfs.sh ```
 
