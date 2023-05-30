@@ -2,6 +2,8 @@
 
 Para nuestro clúster vamos a usar la versión 3.3.4 de Hadoop.
 
+***Importante esta configuración se realizará en el servidor1, y despues deberas replicarla en los servidores workers(servidor2, 3 y 4)***
+
 Para la instalación de esto primero debemos de instalar la versión recomendada de Java:
 
 ```sudo apt-get install openjdk-11-jdk ```
@@ -225,6 +227,10 @@ HDFS:
     ```
     
 ![image](https://user-images.githubusercontent.com/123466051/235992798-56ddf13b-16be-44c0-ba54-6821efbcaef6.png)
+
+
+![image](https://github.com/Franmc027/Hadoop-Cluster/assets/123466051/4aa64f4d-9385-47d4-8adc-5e8fadd07301)
+
 
     
 YARN
