@@ -37,7 +37,7 @@ export PATH=$KAFKA_HOME/bin:$PATH
 
 Despues de esto nos vamos al archivo ```server.properties```
 
-- Descomentamos la siguiente línea y colocamos la ip de la máquina donde va a estar este kafaka:
+- Descomentamos la siguiente línea y colocamos la ip de la máquina donde va a estar este kafka:
 ```listeners=PLAINTEXT://192.168.12.223:9092```
  
  - Modificamos la línea donde proporcionamos donde va a escuchar Zookeeper:
