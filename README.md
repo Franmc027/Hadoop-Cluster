@@ -35,3 +35,13 @@ La información del funcionamiento de cada servicio instalado esta [aqui](https:
 6-[Instalación de Kafka con Zookeeper](https://github.com/Franmc027/Hadoop-Cluster/blob/main/Instalacion-Kafka.md)
 
 7-[Instalación de NIFI](https://github.com/Franmc027/Hadoop-Cluster/blob/main/Instalacion-Nifi.md)
+
+## Pruebas de los servicios
+
+1-[Prueba de pig](https://github.com/Franmc027/Hadoop-Cluster/blob/main/Prueba-pig.md)
+
+2-[Prueba de Spark](https://github.com/Franmc027/Hadoop-Cluster/blob/main/Prueba-Spark.md)
+
+3-[Prueba de Flume](https://github.com/Franmc027/Hadoop-Cluster/blob/main/Prueba-Flume.md)
+
+4-[Prueba de Nifi y Kafka](https://github.com/Franmc027/Hadoop-Cluster/blob/main/Prueba-Nifi-Kafka.md)
