@@ -46,7 +46,9 @@ Iniciamos nifi con:
 
 Ya podríamos entrar a la interfaz web escribiendo la siguiente url en nuestro buscador:
 
-```https:192.168.12.223:8443```
+```https://192.168.12.223:8443```
+
+![image](https://github.com/Franmc027/Hadoop-Cluster/assets/123466051/e178f752-ee5a-46b8-abfe-99a3c69e87a0)
 
 
 
